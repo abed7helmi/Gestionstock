@@ -1,0 +1,300 @@
+
+
+@extends('layouts.app')
+
+@section('content')
+    <p></p>
+   
+    @csrf
+    <form  action="/demandes" method='POST'>
+        @csrf
+        <div class="form-group">
+            <label ><h1>Nom :</h1></label>
+            <input type="text" class="form-control  @error('nom') is-invalid @enderror"  placeholder="Votre nom..." name="nom" 
+            value="{{old('nom')}}">
+            @error('nom')
+            <div class="invalid-feedback">
+                {{$errors->first('nom')}}
+            </div>
+            @enderror
+        </div>
+        <div class="form-group">
+            <label><h1>Prenom :</h1></label>
+            <input type="text" class="form-control  @error('prenom') is-invalid @enderror" placeholder="Votre prenom..." name="prenom" value="{{old('prenom')}}">
+            @error('prenom')
+            <div class="invalid-feedback">
+                {{$errors->first('prenom')}}
+            </div>
+            @enderror
+        </div>
+        <div class="form-group">
+            <label ><h1>Code CP :</h1></label>
+            <input type="text" class="form-control @error('cp') is-invalid @enderror"  placeholder="Votre identifiant SNCF..." name="cp" value="{{old('cp')}}">
+            @error('cp')
+            <div class="invalid-feedback">
+                {{$errors->first('cp')}}
+            </div>
+            @enderror
+        </div>
+        <div class="form-group" name="nom">
+            <label ><h1>Statut :</h1></label>
+            <select class="custom-select mr-sm-2" name="statut">
+                
+                <option value="interne" selected>Interne</option>
+                <option value="externe">Externe</option>
+                
+                </select>
+        </div>
+
+        <div><h1>Equipement :</h1></div>
+        <div class="form-group" >
+            
+            
+                <div class="jumbotron center" id="tableactplan" >
+                    
+                <center>
+                    
+                    <div class="form-check form-check-inline" >
+                        <input class="form-check-input" type="checkbox" name="pc" id="testpc">
+                        <label class="form-check-label" >PC</label>
+
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="ecran" id="testecran">
+                        <label class="form-check-label" >Ecran</label>
+                    </div>
+                    
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="souris" id="testsouris" >
+                        <label class="form-check-label" >Souris</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="casque" id="testcasque">
+                        <label class="form-check-label" >Casque</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="clavier" id="testclavier">
+                        <label class="form-check-label" >Clavier</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="base" id="testbase" >
+                        <label class="form-check-label" >Base</label>
+                    </div>
+                </center>
+                </div>
+                <div  class="form-group marge_block" id="pcform">
+                    <div class="row">
+                        <p class="text_equipement">Votre PC :</p>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Modele</label>
+                            <select class="form-control" name="modele_pc" required>
+                                <option selected>choisir le modele ...</option>
+                                <option  value="L380">L380</option>
+                                <option  value="L390">L390</option>
+                                <option  value="L470">L470</option>
+                                <option  value="X270">X270</option>
+                                <option  value="X260">X260</option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                        <label>Windows</label>
+                            <select class="form-control" name="version_windows">
+                                <option selected>choisir le modele du windows ...</option>
+                                <option  value="8">8</option>
+                                <option  value="9">9</option>
+                                <option  value="10">10</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <label>SSD</label>
+                            <select class="form-control" name="version_ssd">
+                                <option selected>choisir le SSD ...</option>
+                                <option  value="250GB">250 GB</option>
+                                <option  value="500GB">500 GB</option>
+                                <option  value="1TO">1 TO</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>RAM</label>
+                            <select class="form-control" name="version_ram">
+                                <option selected>choisir la RAM...</option>
+                                <option  value="250GB">4 GB</option>
+                                <option  value="500GB">8 GB</option>
+                                <option  value="1TO">12 GB</option>
+                                <option  value="1TO">16 GB</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div  class="form-group marge_block" id="ecranform">
+                    <div class="row">
+                        <p class="text_equipement">Votre Ecran :</p>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Marque</label>
+                            <select class="form-control" name="marque_ecran">
+                                <option selected>choisir la marque...</option>
+                                <option  value="philips">PHILIPS</option>
+                                <option  value="sumsung">SUMSUNG</option>
+                               
+                                
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>Taille</label>
+                            <select class="form-control" name="taille_ecran">
+                                <option selected>choisir la taille...</option>
+                                <option  value="14">14"</option>
+                                
+                                <option  value="15">17"</option>
+                                <option  value="20">20"</option>
+                                <option  value="22">22"</option>
+                               
+                                
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>Quantité</label>
+                            <select class="form-control" name="quant_ecran">
+                                <option selected>choisir ...</option>
+                                <option  value="1">1</option>
+                                <option  value="2">2</option>
+                                <option  value="3">3</option>
+                            </select>
+                          
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+
+
+                <div  class="form-group marge_block" id="sourisform">
+                    <div class="row">
+                        <p class="text_equipement">Souris :</p>
+                    </div>
+                    <div class="row">
+
+                        <div class="col">
+                            <label>Sans fil</label>
+                            <select class="form-control" name="souris_sansfil" >
+                                <option selected>choisir ...</option>
+                                <option value="oui">oui</option>
+                                <option  value="non">non</option>
+                               
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>Quantité</label>
+                            <select class="form-control" name="quant_souris">
+                                <option selected>choisir ...</option>
+                                <option  value="1">1</option>
+                                <option  value="2">2</option>
+                                <option  value="3">3</option>
+                            </select>
+                          
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+
+
+                <div  class="form-group marge_block" id="casqueform">
+                    <div class="row">
+                        <p class="text_equipement">Casque :</p>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="col">
+                            <label>Sans fil</label>
+                            <select class="form-control" name="casque_sans_fil">
+                                <option selected>choisir ...</option>
+                                <option  value="oui">oui</option>
+                                <option  value="non">non</option>
+                               
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>Quantité</label>
+                            <select class="form-control" name="quant_casque">
+                                <option selected>choisir ...</option>
+                                <option  value="1">1</option>
+                                <option  value="2">2</option>
+                                <option  value="3">3</option>
+                            </select>
+                          
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+
+                <div  class="form-group marge_block" id="clavierform">
+                    <div class="row">
+                        <p class="text_equipement">Clavier :</p>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Marque</label>
+                            <select class="form-control" name="marque_clavier">
+                                <option selected >choisir la marque ...</option>
+                                <option  value="hp">HP</option>
+                                <option  value="logitech">LOGITECH</option>
+                                <option  value="lenovo">LENOVO</option>
+                                
+                            </select>
+                        </div>
+                        
+                        
+                    </div>
+                   
+                </div>
+
+                <div  class="form-group marge_block" id="baseform">
+                    <div class="row">
+                        <p class="text_equipement">Base :</p>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Marque</label>
+                            <select class="form-control" name="base_marque">
+                                <option selected>choisir la marque ...</option>
+                                <option  value="targus">TARGUS</option>
+                                <option  value="hp">HP</option>
+                                
+                            </select>
+                        </div>
+                        
+                        
+                    </div>
+                   
+                </div>
+
+
+                <div class="form-group">
+                    <label><h1>Commentaire :</h1></label>
+                    <textarea class="form-control" rows="5" name="commentaire" placeholder="Tapez votre commentaire ici..."></textarea>
+                </div>
+            
+        </div>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <button type="reset" class="btn btn-danger">Annuler</button>
+        </form>
+@endsection        
+
+

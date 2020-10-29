@@ -1,0 +1,53 @@
+@font-face
+{
+    font-family: 'Dayrom';
+   src: url('polices/dayrom.eot');
+    /*src: url('polices/dayrom.eot?#iefix') format('embedded-opentype'),
+         url('polices/dayrom.woff') format('woff'),
+         url('polices/dayrom.ttf') format('truetype'),
+         url('polices/dayrom.svg#Dayrom') format('svg');
+    font-weight: normal;
+    font-style: normal;*/
+}
+
+
+h1
+{
+    font-family: Dayrom, serif;
+   /* font-weight: normal;*/
+    font-weight: bold; /*gras*/
+    text-transform: uppercase; /*trodhomlek majuscule*/
+    font-size: medium;
+    /*text-decoration: line-through; hedhi tchatab mathalan */
+
+}
+
+/* #pcform{
+    display: none;  border: 2px solid black;
+                padding: 50px;
+                margin: 20px;
+}
+
+#ecranform{
+    display: none;  border: 2px solid black;
+                padding: 50px;
+                margin: 20px;
+} */
+.marge_block{
+    display: none;  border: 2px solid black;
+                padding: 50px;
+                margin: 20px;
+}
+
+.text_equipement{
+    font-style: italic;
+    font-size: larger;
+    color: rgb(228, 60, 186);
+}
+
+.marge_block > div{
+    
+    
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
