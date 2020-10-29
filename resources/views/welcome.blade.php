@@ -2,7 +2,7 @@
 
 @extends('layouts.app')
 
-@section('content')
+@section('content') 
     <p></p>
    
     @csrf
@@ -94,7 +94,7 @@
                         <div class="col">
                             <label>Modele PC1</label>
                             <select class="form-control" name="modele_pc1">
-                                <option selected value="">choisir le modele ...</option>
+                                <option  value="">choisir le modele ...</option>
                                 <option  value="L380">L380</option>
                                 <option  value="L390">L390</option>
                                 <option  value="L470">L470</option>

@@ -24,7 +24,7 @@ class CreateDemandesTable extends Migration
              //checkbox
             $table->string('ecran')->nullable();
             $table->string('souris')->nullable();
-            $table->string('casque')->nullable();
+            $table->string('casque')->nullable(); 
             $table->string('clavier')->nullable();
             $table->string('base')->nullable();
             //PC
@@ -33,15 +33,17 @@ class CreateDemandesTable extends Migration
             $table->string('version_ram1')->nullable();
             $table->string('version_ssd1')->nullable();
 
+            $table->string('modele_pc2')->nullable();
+            $table->string('version_windows2')->nullable();
+            $table->string('version_ram2')->nullable();
+            $table->string('version_ssd2')->nullable();
+
             $table->string('modele_pc3')->nullable();
             $table->string('version_windows3')->nullable();
             $table->string('version_ram3')->nullable();
             $table->string('version_ssd3')->nullable();
 
-            $table->string('modele_pc2')->nullable();
-            $table->string('version_windows2')->nullable();
-            $table->string('version_ram2')->nullable();
-            $table->string('version_ssd2')->nullable();
+
 
 
 

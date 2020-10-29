@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::post ('demandes',[\App\Http\Controllers\DemandeController::class,'store']);
 Route::get ('list',[\App\Http\Controllers\DemandeController::class,'list'])->name('list');
-
+ 
 
 Route::get('home', function () {
     return view('welcome');

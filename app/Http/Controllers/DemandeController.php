@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Demande;
 
 
+
 class DemandeController extends Controller
 {   
 
@@ -17,16 +18,10 @@ class DemandeController extends Controller
     {
         
         $input = $request->all();
-        
-        $data=request()->validate([         
-            'nom'=>'required|min:3|regex:/^[A-Za-z\é\è\ê\-]+$/',
-            'prenom'=>'required|min:3|regex:/^[A-Za-z\é\è\ê\-]+$/',
-            'cp'=>'required|min:3'
-            ]);
-        
-        
-         if(!Demande::where('cp', $input['cp'])->first()){
+
+        if(!Demande::where('cp', $input['cp'])->first()){
             $demande = new Demande(); 
+            
         } else {
             $demande =  Demande::where('cp', $input['cp'])->first();
         }
@@ -78,13 +73,17 @@ class DemandeController extends Controller
                 
         }
 
+
+
         $demande->save();
 
         return redirect()->route('list');
+        
     }
 
 
     public function list(){
+      
         $demandes=Demande::all();
         return view('list',compact('demandes'));
     }
